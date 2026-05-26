@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medical Content Writer Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #f7f5f0;
+      color: #2c2c2c;
+      line-height: 1.8;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #1a4a5a 0%, #2d7d8e 60%, #4aa8a0 100%);
+      color: white;
+      padding: 70px 40px 60px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .hero .tagline {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      font-style: italic;
+      margin-bottom: 22px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 28px;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      color: #1a4a5a;
+      border-bottom: 3px solid #4aa8a0;
+      padding-bottom: 8px;
+      margin-bottom: 28px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── INTRO CARD ── */
+    .intro-card {
+      background: white;
+      border-left: 5px solid #2d7d8e;
+      border-radius: 8px;
+      padding: 28px 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      font-size: 1.05rem;
+    }
+    .intro-card p { margin-bottom: 14px; }
+    .intro-card p:last-child { margin-bottom: 0; }
+
+    /* ── STRONG POINTS ── */
+    .points-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .point-card {
+      background: white;
+      border-radius: 10px;
+      padding: 22px 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      border-top: 4px solid #4aa8a0;
+    }
+    .point-card .icon { font-size: 1.6rem; margin-bottom: 8px; }
+    .point-card h3 { font-size: 1rem; color: #1a4a5a; margin-bottom: 8px; }
+    .point-card p { font-size: 0.92rem; color: #4a4a4a; }
+
+    /* ── WORK SHOWCASE ── */
+    .work-list { display: flex; flex-direction: column; gap: 22px; }
+    .work-card {
+      background: white;
+      border-radius: 10px;
+      padding: 24px 28px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+      align-items: start;
+    }
+    @media(max-width: 620px) {
+      .work-card { grid-template-columns: 1fr; }
+    }
+    .work-meta { }
+    .work-meta .brand {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #1a4a5a;
+    }
+    .work-meta .url {
+      font-size: 0.8rem;
+      color: #2d7d8e;
+      word-break: break-all;
+      margin-top: 3px;
+    }
+    .work-meta .url a { color: #2d7d8e; text-decoration: none; }
+    .work-meta .url a:hover { text-decoration: underline; }
+    .work-meta .type-tag {
+      display: inline-block;
+      margin-top: 10px;
+      background: #e8f5f5;
+      color: #1a6a6a;
+      border-radius: 12px;
+      padding: 3px 12px;
+      font-size: 0.78rem;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+    }
+    .work-desc { }
+    .work-desc h3 {
+      font-size: 1rem;
+      color: #2d7d8e;
+      margin-bottom: 8px;
+    }
+    .work-desc p { font-size: 0.93rem; color: #3a3a3a; margin-bottom: 8px; }
+    .work-desc ul {
+      padding-left: 18px;
+      font-size: 0.91rem;
+      color: #3a3a3a;
+    }
+    .work-desc ul li { margin-bottom: 4px; }
+
+    /* ── SOCIAL MEDIA ── */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .social-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+    .social-card .platform { font-size: 1.6rem; margin-bottom: 8px; }
+    .social-card h4 { font-size: 0.95rem; color: #1a4a5a; margin-bottom: 6px; }
+    .social-card p { font-size: 0.85rem; color: #555; }
+
+    /* ── DOCTORS ── */
+    .doctor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .doctor-card {
+      background: white;
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      border-left: 4px solid #2d7d8e;
+    }
+    .doctor-card h3 { color: #1a4a5a; margin-bottom: 6px; font-size: 1rem; }
+    .doctor-card .specialty { font-size: 0.83rem; color: #2d7d8e; font-weight: bold; margin-bottom: 10px; }
+    .doctor-card p { font-size: 0.9rem; color: #4a4a4a; }
+
+    /* ── MEDICAL TOURISM FIT ── */
+    .tourism-box {
+      background: linear-gradient(135deg, #1a4a5a, #2d7d8e);
+      color: white;
+      border-radius: 12px;
+      padding: 36px 38px;
+    }
+    .tourism-box h2 { font-size: 1.3rem; margin-bottom: 18px; }
+    .tourism-list { list-style: none; padding: 0; }
+    .tourism-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.96rem;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .tourism-list li:last-child { border-bottom: none; }
+    .tourism-list .check { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* ── WHAT I WRITE ── */
+    .formats-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .format-pill {
+      background: white;
+      border: 2px solid #4aa8a0;
+      border-radius: 24px;
+      padding: 7px 20px;
+      font-size: 0.9rem;
+      color: #1a4a5a;
+      font-weight: 600;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: white;
+      border-radius: 12px;
+      padding: 36px 38px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .cta-section h2 { color: #1a4a5a; font-size: 1.4rem; margin-bottom: 12px; }
+    .cta-section p { color: #555; font-size: 1rem; margin-bottom: 6px; }
+    .cta-section .email-link {
+      display: inline-block;
+      margin-top: 16px;
+      background: #2d7d8e;
+      color: white;
+      border-radius: 30px;
+      padding: 12px 34px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+    .cta-section .email-link:hover { background: #1a4a5a; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 40px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #4aa8a0, transparent);
+      margin: 10px 0 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Medical Content Writer</h1>
+  <p class="tagline">
+    Writing that patients trust, doctors approve, and search engines love —
+    across Ayurveda, fertility, dermatology, dentistry, and wellness.
+  </p>
+  <div class="badges">
+    <span class="badge">Medical &amp; Health Niche</span>
+    <span class="badge">Website Content</span>
+    <span class="badge">Social Media</span>
+    <span class="badge">SEO Writing</span>
+    <span class="badge">Doctor Ghostwriting</span>
+    <span class="badge">Global Audience</span>
+    <span class="badge">Ayurveda Specialist</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+  <h2 class="section-title">Who I Am</h2>
+  <div class="intro-card">
+    <p>
+      I am a medical content writer with hands-on experience writing for real doctors, real clinics,
+      and real patients — not just textbook theory. My work lives on live websites that serve
+      thousands of patients every month, across India and beyond.
+    </p>
+    <p>
+      What makes me different is that I don't just "write about health." I learn the
+      doctor's philosophy, understand the patient's fear, and then write words that bridge that gap —
+      clearly, compassionately, and correctly.
+    </p>
+    <p>
+      From an Ayurvedic kidney treatment clinic to a cutting-edge dental CAD studio, I have
+      written content that turns a confused visitor into a confident patient. That is the one job
+      of good medical writing — and I do it well.
+    </p>
+  </div>
+</div>
+
+<!-- STRONG POINTS -->
+<div class="section">
+  <h2 class="section-title">My Strongest Points</h2>
+  <div class="points-grid">
+
+    <div class="point-card">
+      <div class="icon">🩺</div>
+      <h3>Deep Medical Knowledge</h3>
+      <p>I have written across Ayurveda, fertility, dermatology, dentistry, and general wellness —
+        and I always research before I write. My content is accurate, not guesswork.</p>
+    </div>
+
+    <div class="point-card">
+      <div class="icon">🌍</div>
+      <h3>Global Patient Language</h3>
+      <p>I write in plain, warm English that a patient in Dubai, London, or New York can
+        read and instantly understand — without a medical dictionary.</p>
+    </div>
+
+    <div class="point-card">
+      <div class="icon">🔒</div>
+      <h3>Trust-Building Writing</h3>
+      <p>I know how to make a reader feel safe. My content uses real testimonials, clinical
+        facts, and empathetic language — the combination that earns trust online.</p>
+    </div>
+
+    <div class="point-card">
+      <div class="icon">🔍</div>
+      <h3>SEO-Friendly Content</h3>
+      <p>Every page I write is built to rank. I naturally weave in keywords, structure content
+        for readability, and write meta-focused copy — without it ever feeling robotic.</p>
+    </div>
+
+    <div class="point-card">
+      <div class="icon">✍️</div>
+      <h3>Doctor Ghostwriting</h3>
+      <p>I have written in the voice of real doctors — blogs, Quora answers, social posts —
+        capturing their expertise and personality so authentically that patients engage deeply.</p>
+    </div>
+
+    <div class="point-card">
+      <div class="icon">📱</div>
+      <h3>Multi-Format Versatility</h3>
+      <p>From long-form website pages to snappy Instagram captions and in-depth Reddit posts —
+        I adapt my style to every platform without losing the medical credibility.</p>
+    </div>
+
+    <div class="point-card">
+      <div class="icon">🌿</div>
+      <h3>Ayurveda to Allopathy</h3>
+      <p>I can explain traditional Indian medicine to a global audience simply and engagingly.
+        This is a rare skill — and essential for medical tourism content.</p>
+    </div>
+
+    <div class="point-card">
+      <div class="icon">💼</div>
+      <h3>B2B &amp; B2C Both</h3>
+      <p>I have written patient-facing wellness content AND professional business content for
+        dental studios targeting global labs. I understand both worlds.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- WORK SHOWCASE -->
+<div class="section">
+  <h2 class="section-title">My Work — Live on the Web</h2>
+  <div class="work-list">
+
+    <!-- SRIAAS -->
+    <div class="work-card">
+      <div class="work-meta">
+        <div class="brand">SRIAAS Ayurveda</div>
+        <div class="url"><a href="https://www.sriaas.com" target="_blank">www.sriaas.com</a></div>
+        <span class="type-tag">Hospital Website</span>
+      </div>
+      <div class="work-desc">
+        <h3>Full Website Content — Chronic Disease &amp; Ayurvedic Hospital</h3>
+        <p>
+          SRIAAS is one of India's established Ayurvedic hospitals treating over 5 lakh patients.
+          I wrote content that speaks to patients suffering from complex chronic conditions —
+          kidney disorders, paralysis, Parkinson's, infertility, diabetes, and more.
+        </p>
+        <ul>
+          <li>Wrote condition pages that explain complex diseases in simple, calming language</li>
+          <li>Created trust-building content blending ancient Ayurvedic wisdom with modern patient expectations</li>
+          <li>Crafted patient journey narratives that guide first-time visitors toward booking a consultation</li>
+          <li>Maintained cultural authenticity (Sanskrit references) while keeping it accessible for a global reader</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SIYA AYURVEDA -->
+    <div class="work-card">
+      <div class="work-meta">
+        <div class="brand">Siya Ayurveda</div>
+        <div class="url"><a href="https://www.siyaayurveda.com" target="_blank">www.siyaayurveda.com</a></div>
+        <span class="type-tag">E-Commerce Health Brand</span>
+      </div>
+      <div class="work-desc">
+        <h3>Product &amp; Condition Content — Skin &amp; Hair Care</h3>
+        <p>
+          Siya Ayurveda is a dermatology-focused wellness brand led by Dr. Megha Chaturvedi.
+          I wrote all content to help skin patients understand their condition and feel confident
+          choosing Ayurvedic treatment.
+        </p>
+        <ul>
+          <li>Wrote detailed condition pages for psoriasis, vitiligo, acne, eczema, and pigmentation</li>
+          <li>Created product descriptions that convert hesitant visitors into buyers</li>
+          <li>Developed the brand tone — warm, scientific, and deeply patient-first</li>
+          <li>Used real patient success language to build emotional connection and credibility</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- DR HEALTH -->
+    <div class="work-card">
+      <div class="work-meta">
+        <div class="brand">Dr. Health</div>
+        <div class="url">
+          <a href="https://www.drhealth.life" target="_blank">www.drhealth.life</a><br/>
+          <a href="https://www.drhealth.co.in" target="_blank">www.drhealth.co.in</a>
+        </div>
+        <span class="type-tag">Medical Brand Website</span>
+      </div>
+      <div class="work-desc">
+        <h3>Skin &amp; Fertility Treatment Content — Ayurvedic Alternative Medicine</h3>
+        <p>
+          Dr. Health positions itself as a natural alternative to steroid-based treatments.
+          My content had to do two things at once: build scientific credibility and give
+          patients hope. I achieved both.
+        </p>
+        <ul>
+          <li>Wrote compelling treatment pages for psoriasis, vitiligo, varicocele, and male infertility</li>
+          <li>Created content that validates the patient's decision to try Ayurveda</li>
+          <li>Balanced promotional energy with medical seriousness — no false promises, just real stories</li>
+          <li>Helped position the brand across 51,000+ successful case claims with trustworthy language</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SEED FIT -->
+    <div class="work-card">
+      <div class="work-meta">
+        <div class="brand">Seed.Fit</div>
+        <div class="url"><a href="https://www.seed.fit" target="_blank">www.seed.fit</a></div>
+        <span class="type-tag">Fertility Health Brand</span>
+      </div>
+      <div class="work-desc">
+        <h3>Fertility &amp; Reproductive Health Content</h3>
+        <p>
+          Seed.Fit is a sensitive topic — fertility struggles affect people emotionally as much as
+          physically. I wrote content that addresses that emotional weight with honesty,
+          without losing the clinical accuracy.
+        </p>
+        <ul>
+          <li>Covered male and female fertility topics — sperm health, PCOS, irregular cycles, conception</li>
+          <li>Wrote aspirational yet realistic content: "your journey to parenthood"</li>
+          <li>Developed FAQ content explaining Ayurvedic supplements (ashwagandha, shatavari) to new audiences</li>
+          <li>Created testimonial-style narratives that make readers feel understood, not judged</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MYMEDWRITER -->
+    <div class="work-card">
+      <div class="work-meta">
+        <div class="brand">MyMedWriter</div>
+        <div class="url"><a href="https://www.mymedwriter.com" target="_blank">www.mymedwriter.com</a></div>
+        <span class="type-tag">Medical Writing Platform</span>
+      </div>
+      <div class="work-desc">
+        <h3>Professional Medical Writing — Multi-Specialty</h3>
+        <p>
+          MyMedWriter is a professional medical writing service catering to healthcare organizations.
+          Writing for this platform required meeting the highest standards — evidence-based,
+          referenced, and written for both professional and general audiences.
+        </p>
+        <ul>
+          <li>Wrote across specialties: cardiology, immunology, general medicine, and more</li>
+          <li>Produced articles, blogs, white papers, and healthcare marketing content</li>
+          <li>Used authoritative sources including PubMed and NCBI for research-backed writing</li>
+          <li>Adapted complex clinical language for general patient readers without losing accuracy</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- KONFIDENTAL -->
+    <div class="work-card">
+      <div class="work-meta">
+        <div class="brand">Konfidental Designs</div>
+        <div class="url"><a href="https://konfidentaldesigns.com" target="_blank">konfidentaldesigns.com</a></div>
+        <span class="type-tag">Dental B2B Business</span>
+      </div>
+      <div class="work-desc">
+        <h3>Business Website Content — Dental CAD Design Studio</h3>
+        <p>
+          This is a B2B dental design company serving dental laboratories worldwide. Writing for
+          this client showed a completely different skill: speaking to professionals, not patients.
+          Precision and confidence were the language here.
+        </p>
+        <ul>
+          <li>Wrote service pages for crowns, bridges, implants, surgical guides, and full-mouth rehabilitation</li>
+          <li>Positioned the brand as a trusted global partner for dental labs</li>
+          <li>Balanced technical dental terminology with clear, decision-making language for busy professionals</li>
+          <li>Wrote compelling calls-to-action suited to a global B2B audience</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BEST FIT DENTAL -->
+    <div class="work-card">
+      <div class="work-meta">
+        <div class="brand">Best Fit Dental Studio</div>
+        <div class="url"><a href="https://www.bestfitdentalstudio.com" target="_blank">www.bestfitdentalstudio.com</a></div>
+        <span class="type-tag">Dental Clinic Website</span>
+      </div>
+      <div class="work-desc">
+        <h3>Dental Clinic Content — Patient-Facing Website</h3>
+        <p>
+          For Best Fit Dental Studio, I wrote approachable, friendly content that makes
+          patients feel comfortable about visiting the dentist — a challenge many clinics get wrong.
+        </p>
+        <ul>
+          <li>Wrote service and treatment pages in warm, non-intimidating language</li>
+          <li>Made technical dental procedures feel simple and non-scary for patients</li>
+          <li>Built the clinic's online personality through consistent, caring brand voice</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DOCTOR GHOSTWRITING -->
+<div class="section">
+  <h2 class="section-title">Writing in the Voice of Doctors</h2>
+  <p style="margin-bottom: 22px; color: #444;">
+    One of my most valued skills is ghostwriting — writing in a doctor's voice so naturally
+    that their patients feel they are reading the doctor's own words. I have done this on Quora,
+    LinkedIn, and social media for the following specialists:
+  </p>
+  <div class="doctor-grid">
+
+    <div class="doctor-card">
+      <h3>Dr. Himanshu Dhawan</h3>
+      <div class="specialty">Ayurvedic Physician</div>
+      <p>
+        I wrote Quora answers and social content in Dr. Dhawan's voice — explaining Ayurvedic
+        treatments for skin and chronic conditions to patients seeking natural alternatives.
+        His authority, my words.
+      </p>
+    </div>
+
+    <div class="doctor-card">
+      <h3>Dr. Megha Chaturvedi</h3>
+      <div class="specialty">Dermatologist &amp; Skin Specialist</div>
+      <p>
+        I crafted patient-facing content for Dr. Chaturvedi's brand (Siya Ayurveda) —
+        blog posts, Quora answers, and social media content that blend clinical expertise
+        with the empathy of a doctor who truly listens.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- SOCIAL MEDIA -->
+<div class="section">
+  <h2 class="section-title">Social Media &amp; Community Writing</h2>
+  <p style="margin-bottom: 22px; color: #444;">
+    Medical content is not just for websites. I write for every platform where patients are
+    asking questions and looking for answers.
+  </p>
+  <div class="social-grid">
+
+    <div class="social-card">
+      <div class="platform">💬</div>
+      <h4>Quora</h4>
+      <p>Long-form patient Q&amp;A answers in the doctor's voice — ranked and read by thousands
+        seeking medical guidance.</p>
+    </div>
+
+    <div class="social-card">
+      <div class="platform">🗨️</div>
+      <h4>Reddit</h4>
+      <p>Community-style posts that engage authentically with health-conscious readers in
+        health and wellness subreddits.</p>
+    </div>
+
+    <div class="social-card">
+      <div class="platform">💼</div>
+      <h4>LinkedIn</h4>
+      <p>Professional medical content — thought leadership posts, brand stories, and
+        health insights for a corporate audience.</p>
+    </div>
+
+    <div class="social-card">
+      <div class="platform">📸</div>
+      <h4>Instagram</h4>
+      <p>Short, visual captions that explain complex health topics in 3 sentences —
+        scroll-stopping and shareable.</p>
+    </div>
+
+    <div class="social-card">
+      <div class="platform">📘</div>
+      <h4>Facebook</h4>
+      <p>Community-building posts for medical brand pages — designed to inform,
+        reassure, and build patient loyalty.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- WHAT I WRITE -->
+<div class="section">
+  <h2 class="section-title">Content Formats I Work In</h2>
+  <div class="formats-wrap">
+    <span class="format-pill">Website Pages</span>
+    <span class="format-pill">Blog Articles</span>
+    <span class="format-pill">Condition / Disease Pages</span>
+    <span class="format-pill">Product Descriptions</span>
+    <span class="format-pill">Doctor Bio Pages</span>
+    <span class="format-pill">Patient Testimonials</span>
+    <span class="format-pill">FAQs</span>
+    <span class="format-pill">Quora Answers</span>
+    <span class="format-pill">Reddit Posts</span>
+    <span class="format-pill">LinkedIn Posts</span>
+    <span class="format-pill">Instagram Captions</span>
+    <span class="format-pill">Facebook Posts</span>
+    <span class="format-pill">WhatsApp Scripts</span>
+    <span class="format-pill">Landing Pages</span>
+    <span class="format-pill">White Papers</span>
+    <span class="format-pill">Healthcare Marketing Copy</span>
+    <span class="format-pill">Video Scripts</span>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="section">
+  <div class="cta-section">
+    <h2>Let's Talk</h2>
+    <p>If you are looking for a medical content writer who understands patients, respects doctors,
+      and writes for a global audience — I am ready.</p>
+    <p>I am available for full-time, part-time, and project-based work.</p>
+    <a class="email-link" href="mailto:pkumarparjapath@gmail.com">
+      pkumarparjapath@gmail.com
+    </a>
+  </div>
+</div>
+
+<footer>
+  Medical Content Writer Portfolio &nbsp;|&nbsp; Specialized in Ayurveda, Fertility, Dermatology, Dentistry &amp; Global Health Content
+</footer>
+
+</body>
+</html>
